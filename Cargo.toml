@@ -1,0 +1,23 @@
+[package]
+name = "rust_auto_gen_d_ts"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1.10.4"
+reqwest = { version = "0.12.3", features = ["json"] }
+serde = "1.0.198"
+serde_json = "1.0.116"
+swc = "0.273.27"
+swc_common = "0.33.25"
+swc_ecma_ast = "0.112.8"
+swc_ecma_parser = "0.143.16"
+swc_ecma_preset_env = "0.206.18"
+swc_ecma_transforms_base = "0.137.21"
+swc_ecma_utils = "0.127.20"
+swc_ecma_visit = "0.98.7"
+tempfile = "3.10.1"
+tokio = { version = "1", features = ["full"] }
+tokio-stream = "0.1.15"
