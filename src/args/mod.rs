@@ -114,39 +114,6 @@ mod tests {
     use tokio::{fs, io::AsyncWriteExt};
 
     #[tokio::test]
-    async fn test_absoulte_path_not_exist() {
-        let input_path = r"C:\商城项目\mallapp-designer\v3\utils";
-        let output_path = r"C:\Users\liudanrui\Documents\BaiduSyncdisk\rust_tools\rust_auto_gen_d_ts\testt\tt\t.js";
-
-        let result = trans_2_absolute(input_path, true).expect("get path error");
-        dbg!(result);
-        let result = trans_2_absolute(output_path, false).expect("get path error");
-        dbg!(result);
-    }
-
-    #[tokio::test]
-    async fn test_relative_path_not_exist() {
-        let input_path = r"C:\商城项目\mallapp-designer\v3\utils";
-        let output_path = r"../rust_auto_gen_d_ts/testt/tt";
-
-        let result = trans_2_absolute(input_path, true).expect("get path error");
-        dbg!(result);
-        let result = trans_2_absolute(output_path, false).expect("get path error");
-        dbg!(result);
-    }
-
-    #[tokio::test]
-    async fn test_relative_path_exist() {
-        let input_path = r"C:\商城项目\mallapp-designer\v3\utils";
-        let output_path = r"../rust_auto_gen_d_ts/testt/";
-
-        let result = trans_2_absolute(input_path, true).expect("get path error");
-        dbg!(result);
-        let result = trans_2_absolute(output_path, false).expect("get path error");
-        dbg!(result);
-    }
-
-    #[tokio::test]
     async fn test_init() {
         // 创建临时文件夹和文件
         let temp_dir = fs::create_dir_all("/tmp/test_dir").await.unwrap();
@@ -184,17 +151,6 @@ mod tests {
         let result = trans_2_absolute(path, false);
         assert!(result.is_ok());
         assert_eq!(result.unwrap(), PathBuf::from(path));
-    }
-
-    #[test]
-    fn test_trans_2_absolute_with_relative_windows_path() {
-        let path = r#"C:\商城项目\mallapp-designer\v3\utils"#;
-        dbg!(PathBuf::from(path));
-        let result = trans_2_absolute(path, false);
-        assert!(result.is_ok());
-        // Assert the canonicalized path is correct
-        let canonical_path = std::fs::canonicalize(path).unwrap();
-        assert_eq!(result.unwrap(), canonical_path);
     }
 
     #[test]
