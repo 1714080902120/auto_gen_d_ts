@@ -117,7 +117,7 @@ mod tests {
                 content: "\nexport type TriggerLock = {\n    trigger: <T>(callback: () => Promise<T>) => Promise<T>;\n};\n\nexport const LockerWrapper: <T>(\n    locker: TriggerLock,\n    func: (...args: any[]) => Promise<T> | T\n) => (...args: any[]) => Promise<T>;\n".to_string(),
             }
         ];
-        let output_path = Path::new("\\\\?\\C:\\Users\\liudanrui\\Documents\\BaiduSyncdisk\\rust_tools\\rust_auto_gen_d_ts\\testt");
+        let output_path = Path::new("\\\\?\\C:\\Users\\xxx\\Documents\\BaiduSyncdisk\\rust_tools\\rust_auto_gen_d_ts\\testt");
         let res = generate_dts_files(
             output_path,
             &code_blocks,
